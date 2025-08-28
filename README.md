@@ -11,7 +11,7 @@
 --- 
 
 ## ⚙️ Setup
-Dans ce laboratoire, vous développerez une application de gestion des personnes et des articles pour un petit magasin. Il ne s’agit pas d’une application commerciale complète, mais elle offre une structure de base qui nous permettra d’expérimenter une architecture Client–Serveur sous une forme simplifiée :
+Dans ce laboratoire, vous développerez une application de gestion des utilisateurs et des articles pour un petit magasin. Il ne s'agit pas d'une application commerciale complète, mais elle offre une structure de base qui nous permettra d’expérimenter une architecture Client–Serveur sous une forme simplifiée :
 
 - Le client (`store_manager.py`) se connecte à un serveur (base de données), qui peut se trouver sur le même ordinateur ou sur un autre. Dans notre cas, nous utiliserons un seul conteneur dans la machine virtuelle pour l’ensemble de l’application.
 
