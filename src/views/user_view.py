@@ -3,6 +3,7 @@ User view
 SPDX - License - Identifier: LGPL - 3.0 - or -later
 Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 """
+from models.user import User
 from controllers.user_controller import UserController
 
 class UserView:
@@ -15,9 +16,12 @@ class UserView:
             choice = input("Choisissez une option: ")
 
             if choice == '1':
-                controller.list_users()
+                users = controller.list_users()
+                UserView.show_users(users)
             elif choice == '2':
-                controller.create_user()
+                name, email = UserView.get_inputs()
+                user = User(None, name, email)
+                controller.create_user(user)
             elif choice == '3':
                 controller.shutdown()
                 break
