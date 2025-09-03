@@ -11,15 +11,9 @@
 --- 
 
 ## ⚙️ Setup
-Dans ce laboratoire, vous développerez une application de gestion des utilisateurs et des articles pour un petit magasin. Il ne s'agit pas d'une application commerciale complète, mais elle offre une structure de base qui nous permettra d’expérimenter une architecture Client–Serveur sous une forme simplifiée :
+Dans ce laboratoire, vous développerez une application de gestion des utilisateurs et des articles pour un petit magasin. Il ne s'agit pas d'une application commerciale complète, mais elle offre une structure de base qui nous permettra d’expérimenter une architecture Client–Serveur sous une forme simplifiée.
 
-- Le client (`store_manager.py`) se connecte à un serveur (base de données), qui peut se trouver sur le même ordinateur ou sur un autre. Dans notre cas, nous utiliserons un seul conteneur dans la machine virtuelle pour l’ensemble de l’application.
-
-- Cette architecture permet d’avoir plusieurs clients. Par exemple un poste à chaque caisse du magasin, afin que les vendeurs puissent consulter le catalogue d’articles et ajouter de nouveaux articles.
-
-- Cette architecture permet également d’avoir plusieurs serveurs. Pour explorer les avantages et les inconvénients de différentes bases de données, nous utiliserons dans ce laboratoire deux serveurs : MySQL et MongoDB. Les avantages spécifiques d'utiliser les bases de données multiples seront étudiés plus en détail dans les prochains laboratoires.
-
-- En travaillant sur les opérations de base de données, nous expérimenterons aussi les concepts de Data Access Object (DAO) et de MVC (Model–View–Controller).
+> ⚠️ IMPORTANT : Avant de commencer le setup et les activités, veuillez lire la documentation architecturale dans le répertoire `/docs/arc42/docs.pdf`.
 
 ### 1. Faites un fork et clonez le dépôt GitLab
 
