@@ -69,12 +69,7 @@ Le système permet aux employé.es du magasin de :
 - Persistance, base de données relationelle, NoSQL
 
 ## 9. Décisions d'architecture
-
-| Décision | Justification | Conséquences |
-|----------|---------------|--------------|
-| **Client-Serveur** | Démonstration d'une architecture client-serveur | L'évolutivité et la flexibilité sont limitées par rapport à d'autres architectures |
-| **DAO séparés par type de BD** | Comparaison des avantages et des inconvénients entre une base de données relationnelle (MySQL) et NoSQL (MongoDB) | Classes DAO dupliquées |
-| **Interface CLI** | Éviter la complexité d'un frontend web ou desktop | Expérience utilisateur moins « user-friendly » |
+Veuillez consulter le fichier `/docs/adr/adr001.md`.
 
 ## 10. Exigences qualité
 
