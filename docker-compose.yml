@@ -4,12 +4,12 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - db
+      - mysql
       - mongo
     stdin_open: true
     tty: true  
 
-  db:
+  mysql:
     image: mysql:8
     restart: unless-stopped
     ports:
