@@ -1,10 +1,9 @@
 FROM python:3.11-slim
 
-WORKDIR /app/src
+WORKDIR /app
 
+COPY src/ ./src/
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
-
-CMD ["python", "store_manager.py"]
+CMD ["python", "src/store_manager.py"]

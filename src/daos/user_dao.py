@@ -11,11 +11,13 @@ from models.user import User
 class UserDAO:
     def __init__(self):
         try:
-            load_dotenv(dotenv_path="../.env")
-            db_host = os.getenv("DB_HOST")
-            db_name = os.getenv("DB_NAME")
+            env_path = "../.env"
+            print(os.path.abspath(env_path))
+            load_dotenv(dotenv_path=env_path)
+            db_host = os.getenv("MYSQL_HOST")
+            db_name = os.getenv("MYSQL_DB_NAME")
             db_user = os.getenv("DB_USERNAME")
-            db_pass = os.getenv("DB_PASSWORD")     
+            db_pass = os.getenv("DB_PASSWORD")    
             self.conn = mysql.connector.connect(host=db_host, user=db_user, password=db_pass, database=db_name) 
             self.cursor = self.conn.cursor()
         except FileNotFoundError as e:
