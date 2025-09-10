@@ -22,10 +22,18 @@ git clone https://github.com/guteacher/log430-a25-labo1
 cd log430-a25-labo1
 ```
 
-### 2. Préparer l’environnement de développement
-Suivez les mêmes étapes que dans le laboratoire 00.
+### 2. Créez un fichier .env
+Créez un fichier `.env` basé sur `.env.example`. Dans le fichier `.env`, utilisez les mêmes identifiants que ceux mentionnés dans `docker-compose.yml`.
 
-### 3. Lancez l’application
+### 3. Préparer l’environnement de développement
+Suivez les mêmes étapes que dans le laboratoire 00. Cependant, ne lancez pas le conteneur de manière itérative initialement. Utilisez plutôt `docker build` pour créer tous les services, y compris les bases de données que nous utiliserons dans cet exemple. Si la création est réussie, démarrez le conteneur en mode détaché avec `docker compose up -d`, puis passez au mode interactif avec `docker compose exec`.
+```bash
+docker build -t labo1-store-manager .
+docker compose up -d
+docker compose exec store_manager_app python store_manager.py
+```
+
+### 4. Lancez l’application sur votre ordinateur
 
 ```bash
 cd src
