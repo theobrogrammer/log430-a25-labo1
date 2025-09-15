@@ -15,10 +15,13 @@ Dans ce laboratoire, vous développerez une application de gestion des utilisate
 
 > ⚠️ IMPORTANT : Avant de commencer le setup et les activités, veuillez lire la documentation architecturale dans le répertoire `/docs/arc42/docs.pdf`.
 
-### 1. Faites un fork et clonez le dépôt GitLab
+### 1. Clonez le dépôt
+Créez votre propre dépôt à partir du dépôt gabarit (template). Vous pouvez modifier la visibilité pour la rendre privée si vous voulez.
+![image](./docs/readme_images/github_template_instr.png)
 
+Clonez votre dépôt sur votre ordinateur. Veillez à ne pas cloner le dépôt d'origine.
 ```bash
-git clone https://github.com/guteacher/log430-a25-labo1
+git clone https://github.com/[votre_nom_utilisateur]/log430-a25-labo1
 cd log430-a25-labo1
 ```
 
