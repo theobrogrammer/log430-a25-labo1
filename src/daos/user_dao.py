@@ -41,16 +41,31 @@ class UserDAO:
         return self.cursor.lastrowid
 
     def update(self, user):
-        """ Update given user in MySQL """
-        pass
+        """ Met à jour l'utilisateur donné dans MySQL """
+        try:
+            sql = "UPDATE users SET name=%s, email=%s WHERE id=%s"
+            values = (user.name, user.email, user.id)
+            self.cursor.execute(sql, values)
+            self.conn.commit()
+        except Exception as e:
+            print("Erreur lors de la mise à jour :", e)
 
     def delete(self, user_id):
-        """ Delete user from MySQL with given user ID """
-        pass
+        """ Supprime l'utilisateur de MySQL avec l'ID donné """
+        try:
+            sql = "DELETE FROM users WHERE id=%s"
+            self.cursor.execute(sql, (user_id,))
+            self.conn.commit()
+        except Exception as e:
+            print("Erreur lors de la suppression :", e)
 
-    def delete_all(self): #optional
-        """ Empty users table in MySQL """
-        pass
+    def delete_all(self): #optionnel
+        """ Vide la table des utilisateurs dans MySQL """
+        try:
+            self.cursor.execute("DELETE FROM users")
+            self.conn.commit()
+        except Exception as e:
+            print("Erreur lors du vidage de la table :", e)
         
     def close(self):
         self.cursor.close()
