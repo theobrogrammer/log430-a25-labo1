@@ -10,6 +10,8 @@ from models.user import User
 
 class UserDAO:
     def __init__(self):
+        self.conn = None
+        self.cursor = None
         try:
             env_path = "../.env"
             print(os.path.abspath(env_path))
@@ -24,15 +26,23 @@ class UserDAO:
             print("Attention : Veuillez créer un fichier .env")
         except Exception as e:
             print("Erreur : " + str(e))
+            self.conn = None
+            self.cursor = None
 
     def select_all(self):
         """ Select all users from MySQL """
+        if not self.cursor:
+            print("Erreur : connexion à la base de données non disponible.")
+            return []
         self.cursor.execute("SELECT id, name, email FROM users")
         rows = self.cursor.fetchall()
         return [User(*row) for row in rows]
 
     def insert(self, user):
         """ Insert given user into MySQL """
+        if not self.cursor:
+            print("Erreur : connexion à la base de données non disponible.")
+            return None
         self.cursor.execute(
             "INSERT INTO users (name, email) VALUES (%s, %s)",
             (user.name, user.email)
@@ -42,6 +52,9 @@ class UserDAO:
 
     def update(self, user):
         """ Met à jour l'utilisateur donné dans MySQL """
+        if not self.cursor:
+            print("Erreur : connexion à la base de données non disponible.")
+            return
         try:
             sql = "UPDATE users SET name=%s, email=%s WHERE id=%s"
             values = (user.name, user.email, user.id)
@@ -52,6 +65,9 @@ class UserDAO:
 
     def delete(self, user_id):
         """ Supprime l'utilisateur de MySQL avec l'ID donné """
+        if not self.cursor:
+            print("Erreur : connexion à la base de données non disponible.")
+            return
         try:
             sql = "DELETE FROM users WHERE id=%s"
             self.cursor.execute(sql, (user_id,))
