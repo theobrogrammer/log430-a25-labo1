@@ -1,7 +1,5 @@
 services:
   store_manager_app:
-    environment:
-      - PYTHONPATH=/app/src 
     build: .
     volumes:
       - .:/app
