@@ -1,5 +1,6 @@
 services:
   store_manager_app:
+    
     build: .
     volumes:
       - .:/app
@@ -7,7 +8,8 @@ services:
       - mysql
       - mongo
     stdin_open: true
-    tty: true  
+    tty: true
+    env_file.env: .env
 
   mysql:
     image: mysql:8
