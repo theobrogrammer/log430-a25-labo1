@@ -9,7 +9,7 @@ services:
       - mongo
     stdin_open: true
     tty: true
-    env_file.env: .env
+    env_file: .env
 
   mysql:
     image: mysql:8
