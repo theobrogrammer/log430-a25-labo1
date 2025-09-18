@@ -34,7 +34,7 @@ class UserDAOMongo:
 
     def select_all(self):
         """Sélectionne tous les utilisateurs depuis MongoDB."""
-        if not self.collection:
+        if self.collection is None:
             print("Erreur : connexion à la base de données non disponible.")
             return []
         try:
@@ -46,7 +46,7 @@ class UserDAOMongo:
 
     def insert(self, user):
         """Insère l'utilisateur donné dans MongoDB."""
-        if not self.collection:
+        if self.collection is None:
             print("Erreur : connexion à la base de données non disponible.")
             return None
         try:
@@ -58,7 +58,7 @@ class UserDAOMongo:
 
     def update(self, user):
         """Met à jour l'utilisateur donné dans MongoDB."""
-        if not self.collection:
+        if self.collection is None:
             print("Erreur : connexion à la base de données non disponible.")
             return
         try:
@@ -74,7 +74,7 @@ class UserDAOMongo:
 
     def delete(self, user_id):
         """Supprime l'utilisateur de MongoDB avec l'ID donné."""
-        if not self.collection:
+        if self.collection is None:
             print("Erreur : connexion à la base de données non disponible.")
             return
         try:
@@ -84,7 +84,7 @@ class UserDAOMongo:
 
     def delete_all(self):  # optionnel
         """Vide la collection users dans MongoDB."""
-        if not self.collection:
+        if self.collection is None:
             print("Erreur : connexion à la base de données non disponible.")
             return
         try:
