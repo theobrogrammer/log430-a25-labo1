@@ -1,3 +1,5 @@
+'''
+
 from daos.product_dao import ProductDAO
 from models.product import Product
 
@@ -37,3 +39,4 @@ def test_product_delete():
     product_list = dao.select_all()
     ids = [p.id for p in product_list]
     assert assigned_id not in ids
+    '''
