@@ -1,7 +1,5 @@
 import os, sys
 
-# ajoute le dossier src/ au PYTHONPATH
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from daos.user_dao import UserDAO
 from models.user import User
