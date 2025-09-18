@@ -17,7 +17,7 @@ class ProductDAO:
            # env_path = "../.env"
             #print(os.path.abspath(env_path))
             #load_dotenv(dotenv_path=env_path)
-            db_host = os.getenv("MONGODB_HOST")
+            db_host = os.getenv("MYSQL_HOST")
             db_name = os.getenv("MYSQL_DB_NAME")
             db_user = os.getenv("DB_USERNAME")  
             db_pass = os.getenv("DB_PASSWORD")     
