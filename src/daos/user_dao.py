@@ -4,7 +4,7 @@ SPDX - License - Identifier: LGPL - 3.0 - or -later
 Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 """
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import mysql.connector
 from models.user import User
 
@@ -13,9 +13,9 @@ class UserDAO:
         self.conn = None
         self.cursor = None
         try:
-            env_path = "../.env"
-            print(os.path.abspath(env_path))
-            load_dotenv(dotenv_path=env_path)
+            #env_path = "../.env"
+           # print(os.path.abspath(env_path))
+           # load_dotenv(dotenv_path=env_path)
             db_host = os.getenv("MYSQL_HOST")
             db_name = os.getenv("MYSQL_DB_NAME")
             db_user = os.getenv("DB_USERNAME")
