@@ -1,0 +1,53 @@
+name: CI/CD simple
+
+on:
+  push:
+    branches: [ "main" ]
+  # (optionnel) lancer aussi sur les PR qui visent main
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create a.env
+        run: |
+          cat > a.env <<'EOF'
+          MYSQL_HOST=mysql
+          MYSQL_DB_NAME=mydb
+          DB_USERNAME=user
+          DB_PASSWORD=pass
+          MONGODB_HOST=mongo
+          EOF
+
+      - name: Build & Up
+        run: |
+          docker compose build
+          docker compose up -d
+
+      - name: Run tests
+        run: docker compose exec -T store_manager_app pytest -q
+
+  deploy:
+    needs: test
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ensure a.env
+        run: |
+          [ -f a.env ] || cat > a.env <<'EOF'
+          MYSQL_HOST=mysql
+          MYSQL_DB_NAME=mydb
+          DB_USERNAME=user
+          DB_PASSWORD=pass
+          MONGODB_HOST=mongo
+          EOF
+
+      - name: Deploy
+        run: |
+          docker compose up -d
+          docker compose ps
