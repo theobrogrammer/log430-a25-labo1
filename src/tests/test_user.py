@@ -41,3 +41,4 @@ def test_user_delete():
     user_list = dao.select_all()
     emails = [u.email for u in user_list]
     assert user.email not in emails
+    #test runner
