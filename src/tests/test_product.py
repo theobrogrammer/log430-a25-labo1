@@ -29,7 +29,7 @@ def test_product_update():
 
     product_list = dao.select_all()
     updated = [p for p in product_list if p.id == assigned_id]
-    assert any(abs(p.price - new_price) < 1e-6 for p in updated)
+    assert any(abs(float(p.price) - new_price) < 1e-6 for p in updated)
 
 def test_product_delete():
     product = Product(None, 'Surface Laptop', 'Microsoft', 1299.0)
